@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 app.get("/home", (req, res) => {
     res.send({
@@ -7,6 +10,6 @@ app.get("/home", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Example app listening on port 3000!");
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
 });
